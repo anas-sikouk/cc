@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annacer Assurance | Excellence Digitale & Protection 3.0</title>
+
+    <meta name="description" content="Expertise en assurance à Sidi Kacem. Partenaire AtlantaSanad. Solutions digitales avancées.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("vk3TsCj2TbhWy2OOB");
+        })();
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#002D62',
+                            red: '#E30613',
+                            slate: '#0F172A',
+                            gold: '#B89655',
+                            accent: '#F1F5F9',
+                            dark: '#020617'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '3.5rem',
+                    },
+                    animation: {
+                        'float': 'floating 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'spin-slow': 'spin 8s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --primary: #002D62;
+            --secondary: #E30613;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body { 
+            background-color: #020617; 
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+        }
+
+        .glass-dark {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .mesh-hero {
+            background: radial-gradient(circle at 0% 0%, rgba(0, 45, 98, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 100% 100%, rgba(227, 6, 19, 0.15) 0%, transparent 40%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(var(--primary), var(--secondary)); 
+            border-radius: 5px;
+        }
+
+        .service-card { perspective: 1000px; cursor: pointer; }
+        .service-inner {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        .service-card:hover .service-inner { transform: rotateY(10deg) rotateX(5deg); }
+
+        .dify-wrapper {
+            background: #000;
+            border-radius: 2.5rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(227, 6, 19, 0.15);
+        }
+
+        /* Modal Styles */
+        .modal-active { display: flex !important; }
+        .modal-content-active { opacity: 1 !important; transform: scale(1) !important; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <div class="fixed inset-0 pointer-events-none z-[100] opacity-[0.03]" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');"></div>
+
+    <header id="navbar" class="fixed w-full z-[90] transition-all duration-500 py-6">
+        <div class="max-w-7xl mx-auto px-6">
+            <nav class="glass rounded-3xl px-8 py-4 flex justify-between items-center border-white/5">
+                <div class="flex items-center space-x-4">
+                    <div class="relative w-12 h-12 bg-brand-dark rounded-xl flex items-center justify-center text-white border border-white/10">
+                        <i class="fas fa-shield-halved text-brand-red text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="block text-xl font-black tracking-tighter uppercase leading-none">Annacer</span>
+                        <span class="text-[10px] font-bold text-brand-red uppercase tracking-[0.3em]">Assurance & Conseil</span>
+                    </div>
+                </div>
+                <div class="hidden lg:flex items-center space-x-12">
+                    <ul class="flex space-x-8 text-[11px] font-extrabold uppercase tracking-widest text-slate-400">
+                        <li><a href="#hero" class="hover:text-white transition-colors">Accueil</a></li>
+                        <li><a href="#solutions" class="hover:text-white transition-colors">Solutions</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Rendez-vous</a></li>
+                        <li><a href="#ai-chat" class="hover:text-brand-red transition-colors flex items-center gap-2">Assistant IA</a></li>
+                    </ul>
+                    <a href="tel:0537595910" class="bg-white text-brand-dark px-8 py-3 rounded-2xl font-black text-xs hover:bg-brand-red hover:text-white transition-all">
+                        05 37 59 59 10
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="relative min-h-screen flex items-center pt-32 mesh-hero">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="reveal active">
+                <div class="inline-flex items-center space-x-3 bg-brand-red/10 border border-brand-red/20 px-4 py-2 rounded-full mb-8">
+                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-brand-red">Partenaire Officiel AtlantaSanad</span>
+                </div>
+                <h1 class="text-6xl lg:text-8xl font-black mb-8 leading-[0.95] font-display italic">
+                    La sécurité <br><span class="text-gradient">Redéfinie par</span><br><span class="text-brand-red not-italic">L'Intelligence.</span>
+                </h1>
+                <p class="text-lg text-slate-400 mb-12 max-w-lg leading-relaxed">À Sidi Kacem, découvrez une gestion proactive et digitale pour chaque étape de votre vie.</p>
+                <div class="flex gap-6">
+                    <a href="#ai-chat" class="px-10 py-5 bg-white text-brand-dark rounded-[2rem] font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform">Parler à l'IA</a>
+                    <a href="#contact" class="px-10 py-5 glass text-white rounded-[2rem] font-black uppercase tracking-widest text-xs hover:bg-white/10 transition-all">Prendre RDV</a>
+                </div>
+            </div>
+            <div class="relative flex items-center justify-center reveal active">
+                <div class="relative w-full max-w-md animate-float">
+                    <div class="relative glass rounded-5xl p-10 border-white/10 z-10 shadow-2xl">
+                        <div class="w-16 h-10 bg-gradient-to-br from-brand-gold to-yellow-600 rounded-lg mb-16 shadow-inner"></div>
+                        <p class="text-[10px] text-slate-500 font-bold uppercase mb-2">Titulaire du contrat</p>
+                        <p class="text-2xl font-bold tracking-tight italic uppercase">Client Premium</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 border-y border-white/5 bg-white/[0.02]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+                <div class="reveal">
+                    <p class="text-5xl font-black mb-2 text-brand-red">+7 ans</p>
+                    <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">D'Expérience</p>
+                </div>
+                <div class="reveal">
+                    <p class="text-5xl font-black mb-2 text-white">+2000</p>
+                    <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Assurés</p>
+                </div>
+                <div class="reveal">
+                    <p class="text-5xl font-black mb-2 text-brand-gold">99%</p>
+                    <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Satisfaction</p>
+                </div>
+                <div class="reveal">
+                    <p class="text-5xl font-black mb-2 text-white">24/7</p>
+                    <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Support IA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solutions" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-24 reveal flex justify-between items-end">
+                <h3 class="text-5xl font-black font-display italic">Des solutions <br><span class="text-brand-red italic">sur-mesure.</span></h3>
+                <p class="text-slate-400 text-sm mb-2 hidden md:block">Cliquez sur une carte pour découvrir nos garanties et promotions.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="service-card reveal" onclick="openSolutionModal('auto')">
+                    <div class="service-inner h-full glass p-10 rounded-[3rem] border-white/5 hover:border-brand-red/50 hover:bg-white/5 transition-all group">
+                        <div class="w-16 h-16 bg-brand-red rounded-2xl flex items-center justify-center mb-10 group-hover:rotate-12 transition-transform shadow-lg shadow-brand-red/20">
+                            <i class="fas fa-car-side text-2xl text-white"></i>
+                        </div>
+                        <h4 class="text-2xl font-black mb-6 italic uppercase flex items-center justify-between">Automobile <i class="fas fa-arrow-right text-sm text-brand-red opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">Tarifs préférentiels AtlantaSanad avec une assistance 0km à Sidi Kacem.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card reveal" onclick="openSolutionModal('sante')">
+                    <div class="service-inner h-full bg-gradient-to-br from-brand-blue to-brand-dark p-10 rounded-[3rem] border border-white/10 hover:border-blue-400/50 group">
+                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-10 text-brand-blue shadow-lg shadow-blue-500/20">
+                            <i class="fas fa-heart-pulse text-2xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-black mb-6 italic uppercase flex items-center justify-between">Santé <i class="fas fa-arrow-right text-sm text-white opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                        <p class="text-sm text-blue-100/60 leading-relaxed">Une protection optimale pour vous et vos proches à chaque étape de la vie.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card reveal" onclick="openSolutionModal('habitation')">
+                    <div class="service-inner h-full glass p-10 rounded-[3rem] border-white/5 hover:border-brand-gold/50 hover:bg-white/5 transition-all group">
+                        <div class="w-16 h-16 bg-slate-800 rounded-2xl flex items-center justify-center mb-10 group-hover:-rotate-12 transition-transform shadow-lg shadow-gold-500/20">
+                            <i class="fas fa-house-chimney text-2xl text-brand-gold"></i>
+                        </div>
+                        <h4 class="text-2xl font-black mb-6 italic uppercase flex items-center justify-between">Habitation <i class="fas fa-arrow-right text-sm text-brand-gold opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">Protégez votre patrimoine immobilier contre tous les aléas du quotidien.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card reveal" onclick="openSolutionModal('barid')">
+                    <div class="service-inner h-full glass p-10 rounded-[3rem] border-white/5 hover:border-brand-gold/50 hover:bg-white/5 transition-all group">
+                        <div class="w-16 h-16 bg-brand-gold rounded-2xl flex items-center justify-center mb-10 shadow-lg shadow-gold-500/20">
+                            <i class="fas fa-money-bill-transfer text-2xl text-brand-dark"></i>
+                        </div>
+                        <h4 class="text-2xl font-black mb-6 italic uppercase flex items-center justify-between">Barid Cash <i class="fas fa-arrow-right text-sm text-brand-gold opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">Transfert d'argent national et international et paiements de factures simplifiés.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card reveal" onclick="openSolutionModal('voyage')">
+                    <div class="service-inner h-full glass p-10 rounded-[3rem] border-white/5 hover:border-brand-red/50 hover:bg-white/5 transition-all group">
+                        <div class="w-16 h-16 bg-brand-red/20 border border-brand-red/30 rounded-2xl flex items-center justify-center mb-10">
+                            <i class="fas fa-plane-departure text-2xl text-brand-red"></i>
+                        </div>
+                        <h4 class="text-2xl font-black mb-6 italic uppercase flex items-center justify-between">Voyage <i class="fas fa-arrow-right text-sm text-brand-red opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">Assistance internationale et assurance Visa Schengen pour voyager l'esprit tranquille.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTION MODAL -->
+    <div id="solutionModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 transition-opacity duration-300">
+        <div id="modalContent" class="glass-dark border border-white/10 rounded-[3rem] p-8 md:p-12 max-w-2xl w-full relative transform scale-95 opacity-0 transition-all duration-300 shadow-2xl overflow-y-auto max-h-[90vh]">
+            <button onclick="closeSolutionModal()" class="absolute top-6 right-6 w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white/50 hover:text-white hover:bg-brand-red transition-all">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+            <div id="modalBody" class="mt-4"></div>
+        </div>
+    </div>
+
+    <section id="contact" class="py-32">
+        <div class="max-w-3xl mx-auto px-6">
+            <div id="appointment-container" class="glass p-10 lg:p-16 rounded-5xl border-white/10 relative overflow-hidden shadow-2xl">
+                <div id="form-header">
+                    <h3 class="text-4xl font-black italic mb-4 uppercase">Prendre <span class="text-brand-red">Rendez-vous</span></h3>
+                    <p class="text-slate-400 text-sm mb-10">Choisissez votre service, notre équipe vous rappellera pour confirmer.</p>
+                </div>
+
+                <form id="appointment-form" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <input type="text" id="client_name" name="client_name" placeholder="Nom Complet" required class="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-brand-red transition-all text-white">
+                        <input type="tel" id="client_phone" name="client_phone" placeholder="Téléphone" required class="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-brand-red transition-all text-white">
+                    </div>
+                    <select id="client_service" name="client_service" required class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-brand-red transition-all text-slate-400">
+                        <option class="bg-brand-dark" value="">Type de service...</option>
+                        <option class="bg-brand-dark" value="Assurance Automobile">Assurance Automobile</option>
+                        <option class="bg-brand-dark" value="Assurance Santé & Vie">Santé & Vie</option>
+                        <option class="bg-brand-dark" value="Habitation">Habitation</option>
+                        <option class="bg-brand-dark" value="Barid Cash">Barid Cash</option>
+                        <option class="bg-brand-dark" value="Assurance Voyage">Assurance Voyage</option>
+                    </select>
+                    <button type="submit" id="submit-btn" class="w-full bg-brand-red text-white py-5 rounded-[2rem] font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform shadow-xl shadow-brand-red/20 flex items-center justify-center gap-3">
+                        <span>Confirmer ma demande</span>
+                    </button>
+                </form>
+
+                <div id="success-message" class="hidden text-center py-10">
+                    <div class="w-20 h-20 bg-brand-red rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg shadow-brand-red/30 animate-pulse-slow">
+                        <i class="fas fa-check text-3xl text-white"></i>
+                    </div>
+                    <h4 class="text-2xl font-black uppercase italic mb-4">C'est fait !</h4>
+                    <p class="text-slate-400 leading-relaxed mb-6">Votre demande a été envoyée avec succès.<br>L'agence <span class="text-white font-black">Annacer</span> vous contactera sous peu.</p>
+                    <button onclick="resetForm()" class="text-xs font-bold uppercase tracking-widest text-brand-red hover:text-white transition-colors">
+                        Faire une autre demande
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai-chat" class="py-32 bg-brand-dark/50">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h3 class="text-5xl font-black italic mb-6">Expertise IA <span class="text-brand-red">Directe</span></h3>
+            </div>
+            <div class="reveal dify-wrapper">
+                <iframe src="https://udify.app/chatbot/LcfZLdSOjEi3VZ6p" style="width: 100%; height: 650px" frameborder="0" allow="microphone"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark pt-32 pb-16 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-4 gap-16 mb-20">
+                <div class="lg:col-span-2">
+                    <h4 class="text-2xl font-black italic tracking-tighter uppercase mb-6 text-white">Annacer Assurance</h4>
+                    <p class="text-slate-500 max-w-sm text-sm">Partenaire AtlantaSanad Sidi Kacem. Expertise digitale et protection premium.</p>
+                </div>
+                <div>
+                    <h6 class="text-[10px] font-black uppercase tracking-widest text-brand-red mb-8">Contact</h6>
+                    <ul class="space-y-4 text-sm font-bold text-slate-400">
+                        <li><i class="fas fa-phone mr-3 text-brand-red"></i> 05 37 59 59 10</li>
+                        <li><i class="fas fa-envelope mr-3 text-brand-red"></i> assuranceannaceras@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="text-center text-[10px] font-black uppercase text-slate-600">© 2026 Agence Annacer. Sidi Kacem.</p>
+        </div>
+    </footer>
+
+    <script>
+        // NAVBAR SCROLL
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 100) nav.querySelector('nav').classList.add('glass-dark');
+            else nav.querySelector('nav').classList.remove('glass-dark');
+        });
+
+        // REVEAL ANIMATIONS
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        const solutionsData = {
+            auto: {
+                title: "Assurance Automobile",
+                icon: "fa-car-side",
+                color: "text-brand-red",
+                bgIcon: "bg-brand-red",
+                garanties: [
+                    "Responsabilité Civile Obligatoire",
+                    "Assistance 0km & Remorquage",
+                    "Garantie Dommages Collisions",
+                    "Bris de Glaces (Sans franchise sous conditions)",
+                    "Protection du Conducteur et des Passagers",
+                    "Vol et Incendie"
+                ],
+                promoTitle: "Offre AtlantaSanad Auto",
+                promoText: "Bénéficiez de remises allant jusqu'à 20% pour les conducteurs expérimentés et d'une prise en charge rapide en cas de sinistre."
+            },
+            sante: {
+                title: "Assurance Santé",
+                icon: "fa-heart-pulse",
+                color: "text-blue-400",
+                bgIcon: "bg-blue-500",
+                garanties: [
+                    "Remboursement des frais médicaux & pharmaceutiques",
+                    "Prise en charge hospitalisation à 100%",
+                    "Frais de Maternité",
+                    "Soins dentaires et optiques inclus",
+                    "Accès à un large réseau de cliniques conventionnées"
+                ],
+                promoTitle: "Protection Famille",
+                promoText: "Souscrivez pour toute votre famille et profitez de réductions exclusives sur les cotisations pour vos enfants."
+            },
+            habitation: {
+                title: "Assurance Habitation",
+                icon: "fa-house-chimney",
+                color: "text-brand-gold",
+                bgIcon: "bg-brand-gold",
+                garanties: [
+                    "Incendie, Explosion et Risques annexes",
+                    "Dégâts des eaux",
+                    "Vol et Vandalisme",
+                    "Bris de glaces",
+                    "Responsabilité Civile Vie Privée"
+                ],
+                promoTitle: "Pack Multirisques",
+                promoText: "Sécurisez votre foyer dès aujourd'hui. Tarifs préférentiels pour les nouveaux propriétaires à Sidi Kacem."
+            },
+            barid: {
+                title: "Barid Cash",
+                icon: "fa-money-bill-transfer",
+                color: "text-brand-gold",
+                bgIcon: "bg-brand-gold",
+                garanties: [
+                    "Transfert d'argent National (Mandat Express)",
+                    "Transfert d'argent International (Western Union, MoneyGram)",
+                    "Paiement de factures (Eau, Électricité, Télécom)",
+                    "Paiement des taxes et impôts",
+                    "Recharge téléphonique"
+                ],
+                promoTitle: "Service de proximité",
+                promoText: "Des transactions instantanées et sécurisées avec une assistance personnalisée au sein de notre agence."
+            },
+            voyage: {
+                title: "Assurance Voyage",
+                icon: "fa-plane-departure",
+                color: "text-brand-red",
+                bgIcon: "bg-brand-red",
+                garanties: [
+                    "Frais médicaux et d'hospitalisation à l'étranger",
+                    "Rapatriement sanitaire",
+                    "Retour anticipé",
+                    "Perte ou vol de bagages",
+                    "Assistance juridique à l'étranger"
+                ],
+                promoTitle: "Validité Visa Schengen",
+                promoText: "Notre assurance voyage est 100% conforme aux exigences des consulats pour l'obtention du Visa Schengen."
+            }
+        };
+
+        const modal = document.getElementById('solutionModal');
+        const modalContent = document.getElementById('modalContent');
+        const modalBody = document.getElementById('modalBody');
+
+        function openSolutionModal(type) {
+            const data = solutionsData[type];
+            if(!data) return;
+            const garantiesHtml = data.garanties.map(g => `
+                <li class="flex items-start gap-3 mb-3 text-slate-300">
+                    <i class="fas fa-check-circle mt-1 ${data.color}"></i>
+                    <span class="text-sm">${g}</span>
+                </li>
+            `).join('');
+            modalBody.innerHTML = `
+                <div class="flex items-center gap-6 mb-8">
+                    <div class="w-16 h-16 ${data.bgIcon} rounded-2xl flex items-center justify-center shadow-lg">
+                        <i class="fas ${data.icon} text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-3xl font-black italic uppercase">${data.title}</h3>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white/5 border border-white/10 rounded-3xl p-6">
+                        <h4 class="text-xs font-black uppercase tracking-widest text-slate-500 mb-6">Nos Garanties</h4>
+                        <ul class="m-0 p-0">${garantiesHtml}</ul>
+                    </div>
+                    <div class="bg-gradient-to-br from-brand-red/10 to-transparent border border-brand-red/20 rounded-3xl p-6 relative overflow-hidden">
+                        <div class="absolute -right-4 -top-4 opacity-10"><i class="fas fa-tags text-8xl text-brand-red"></i></div>
+                        <h4 class="text-xs font-black uppercase tracking-widest text-brand-red mb-4 relative z-10">Promotions & Offres</h4>
+                        <p class="font-bold text-lg mb-2 relative z-10">${data.promoTitle}</p>
+                        <p class="text-sm text-slate-400 leading-relaxed relative z-10">${data.promoText}</p>
+                        <button onclick="closeSolutionModal(); document.getElementById('contact').scrollIntoView();" class="mt-8 w-full bg-white text-brand-dark py-3 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-brand-red hover:text-white transition-colors relative z-10">Demander un devis</button>
+                    </div>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.add('modal-active', 'opacity-100');
+                modalContent.classList.add('modal-content-active');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSolutionModal() {
+            modal.classList.remove('opacity-100');
+            modalContent.classList.remove('modal-content-active');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('modal-active');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        modal.addEventListener('click', (e) => { if(e.target === modal) closeSolutionModal(); });
+
+        document.getElementById('appointment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = document.getElementById('submit-btn');
+            const originalBtnContent = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin text-xl"></i> <span>Envoi en cours...</span>';
+            submitBtn.disabled = true;
+
+            const templateParams = {
+                client_name: document.getElementById('client_name').value,
+                client_phone: document.getElementById('client_phone').value,
+                client_service: document.getElementById('client_service').value
+            };
+
+            emailjs.send('service_rdh5hvr', 'template_ni1dhzi', templateParams)
+                .then(function(response) {
+                    document.getElementById('form-header').classList.add('hidden');
+                    document.getElementById('appointment-form').classList.add('hidden');
+                    document.getElementById('success-message').classList.remove('hidden');
+                    submitBtn.innerHTML = originalBtnContent;
+                    submitBtn.disabled = false;
+                }, function(error) {
+                    alert("Erreur lors de l'envoi. Veuillez vérifier vos paramètres EmailJS.");
+                    submitBtn.innerHTML = originalBtnContent;
+                    submitBtn.disabled = false;
+                });
+        });
+
+        function resetForm() {
+            document.getElementById('appointment-form').reset();
+            document.getElementById('success-message').classList.add('hidden');
+            document.getElementById('form-header').classList.remove('hidden');
+            document.getElementById('appointment-form').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
